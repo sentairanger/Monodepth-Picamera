@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-xxl">
+<div class="container px-4 py-5 pt-5 pb-0 mt-4">
+<h2 class="pb-2 border-bottom">About Monodepth Estimation UI</h2>
+<div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+<div class="col d-flex flex-column align-items-start gap-2">
+<h2 class="fw-bold text-body-emphasis">Web Interface that uses the Pi Camera Module and the OpenVINO toolkit</h2>
+<p class="text-body-secondary"> This project uses the Pi Camera Module to take images and then performs monodepth estimation using the OpenVINO toolkit. More information is shown <a href="https://docs.openvino.ai/2022.3/notebooks/201-vision-monodepth-with-output.html">here</a> </p>
+<h4>Capture images</h2>
+<p class="text-body-secondary">Take images with a single button and that image will be shown in the data portion of the project.</p>
+<h4>Run Monodepth Estimation</h4>
+<p class="text-body-secondary"> After taking images run monodepth estimation on the image and then display the results in the gallery.</p>
+<h3>Components of the Project</h4>
+<h4>PiCamera2</h4>
+<ul>
+<li>
+<a href="https://github.com/raspberrypi/picamera2" class="icon-link">PiCamera2 GitHub Repository</a>
+</li>
+<li>
+<a href="https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf" class="icon-link">PiCamera2 Manual</a>	
+</li>
+</ul>
+<p>This project uses PiCamera2 to control the Camera Module.</p>
+<h4>OpenVINO</h4>
+<p>This project utilizes the OpenVINO toolkit to perform monodepth estimation on images.</p>
+<ul>
+<li><a href="https://gist.github.com/sentairanger/caf11a2432ceebd715c6b33c224f4960" class="icon-link">OpenVINO Installation Guide</a></li>
+</ul>
+<h4>Flask</h4>
+<p>This project uses the web framework Flask</p>
+<h4>Bootstrap</h4>
+<p>Bootstrap is used to customize this project</p>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

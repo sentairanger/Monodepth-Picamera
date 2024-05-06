@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-6">
+<div class="card">
+<img src="{{image_file}}" class="card-img-top">
+<div class="card-body text-center">
+<h5 class="card-title"> Data</h5>
+<p class="card-text"> Click to Perform Monodepth Estimation</p>
+<button type="button" id="monodepth" class="btn btn-primary mr-2" onclick="performMonodepth()">Monodepth</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="captureAlert" class="alert" role="alert" style="display: none;"></div>
+<script>
+let monodepthButton = document.getElementById('monodepth');
+let isButtonEnabled = true;
+
+function enableDepthButton() {
+       isButtonEnabled = true;
+       monodepthButton.disabled = false;
+
+}
+
+function performMonodepth() {
+       if (!isButtonEnabled) {
+               return;
+       }
+ 
+       monodepthButton.disabled = true;
+       isButtonEnabled = false;
+       const alertElement = document.getElementById('captureAlert');
+       fetch('/monodepth', {
+               method : 'POST'
+       })
+       .then(response => response.json())
+       .then(data => {
+               console.log(data);
+               enableDepthButton();
+               alertElement.className = 'alert alert-success'
+               alertElement.textContent = 'Monodepth performed successfully'
+
+               enableDepthButton();
+       });
+       alertElement.style.display = 'block';
+       setTimeout(() => {
+               alertElement.style.display = 'none';
+       }, 5000);
+}
+
+
+</script>
+{% endblock %}
